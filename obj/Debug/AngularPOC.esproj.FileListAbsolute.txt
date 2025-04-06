@@ -1,0 +1,1 @@
+C:\Development\AngularPOC\obj\Debug\AngularPOC.esproj.CoreCompileInputs.cache
