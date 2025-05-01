@@ -6,17 +6,18 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { AngularMaterialModule } from './shared/angular-material.module';
+import { HomeComponent } from './home/home.component';
+
 import { FadeInOnScrollDirective } from './shared/directives/fade-in-on-scroll.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
     HeaderComponent,
-    FadeInOnScrollDirective
+    FadeInOnScrollDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
