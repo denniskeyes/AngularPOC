@@ -1,4 +1,35 @@
+.main-container {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+}
+
 .header-background {
   background-color: #004B8D;
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+.header-title {
+  display: flex;
+  flex: auto;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.username {
+  display: flex;
+  flex: auto;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-container {
+  display: flex;
+  flex: auto;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
 }

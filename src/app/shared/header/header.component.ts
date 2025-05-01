@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { Observable } from 'rxjs';
+import { IUser } from '../interfaces/IUser';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +9,26 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
+  user$: Observable<IUser | null>;
+
+  constructor(private userService: UserService) {
+    this.user$ = this.userService.user$;
+  }
+
+  ngOnInit() {
+    this.userService.login({
+      name: 'John Doe',
+      email: 'john@example.com'
+    });
+  }
+
+  openProfileMenu() {
+
+  }
+
+  openNavMenu() {
+
+  }
 }

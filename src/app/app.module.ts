@@ -11,12 +11,14 @@ import { AngularMaterialModule } from './shared/angular-material.module';
 import { HomeComponent } from './home/home.component';
 
 import { FadeInOnScrollDirective } from './shared/directives/fade-in-on-scroll.directive';
+import { HeaderScrollOpacityDirective } from './shared/directives/header-scroll-opacity.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FadeInOnScrollDirective,
+    HeaderScrollOpacityDirective,
     HomeComponent
   ],
   imports: [

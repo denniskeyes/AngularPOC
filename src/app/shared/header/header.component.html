@@ -1,3 +1,18 @@
-<mat-toolbar fadeInOnScroll class="header-background">
-  This is the app header
-</mat-toolbar>
+<div class="main-container" headerScrollOpacity [minOpacity]="0.3" [scrollThreshold]="300">
+  <mat-toolbar fadeInOnScroll class="header-background">
+    <div class="header-title">
+      <button mat-icon-button (click)="openNavMenu()">
+        <mat-icon style="color: #FFFFFF;" aria-hidden="false" aria-label="Menu icon" fontIcon="menu"></mat-icon>
+      </button>
+      <span>AngularPOC</span>
+    </div>
+    <div class="user-container">
+      <span *ngIf="user$ | async as user" class="username">
+        Welcome,&nbsp;<strong>{{ user.name }}</strong>
+      </span>
+      <button mat-icon-button (click)="openProfileMenu()">
+        <mat-icon style="color: #FFFFFF;" aria-hidden="false" aria-label="Person icon" fontIcon="person"></mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
