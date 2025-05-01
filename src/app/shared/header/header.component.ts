@@ -7,7 +7,7 @@ import { IUser } from '../interfaces/IUser';
   selector: 'app-header',
   standalone: false,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
 
