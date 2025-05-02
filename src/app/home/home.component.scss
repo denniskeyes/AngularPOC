@@ -1,3 +1,46 @@
 .main-container {
-    padding-top: 50px;
+  padding-top: 75px;
+}
+
+.card-container {
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.card {
+  margin: 10px;
+}
+
+.card-with-image {
+  max-width: 500px;
+}
+
+.card-header-avatar {
+  background-image: url('https://media.licdn.com/dms/image/v2/D5603AQGIbwc_Rnxk_w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720574827616?e=1751500800&v=beta&t=LEhofkhT5ERmqyjwbvxhdeNcHpBFpmRf3ilWZVrywd4');
+  background-size: cover;
+}
+
+.card-group1 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-end;
+}
+
+.standard-card-container {
+  flex-grow: 1; /* Fill space so that simple card container aligns at bottom */
+}
+
+.standard-card {
+  width: fit-content;
+}
+
+.simple-card-container {
+  
+}
+
+.simple-card {
+  max-width: 300px;
 }

@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 
 import { FadeInOnScrollDirective } from './shared/directives/fade-in-on-scroll.directive';
 import { HeaderScrollOpacityDirective } from './shared/directives/header-scroll-opacity.directive';
+import { PokemonCardLayoutComponent } from './pokemon-card-layout/pokemon-card-layout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderScrollOpacityDirective } from './shared/directives/header-scroll-
     HeaderComponent,
     FadeInOnScrollDirective,
     HeaderScrollOpacityDirective,
-    HomeComponent
+    HomeComponent,
+    PokemonCardLayoutComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
