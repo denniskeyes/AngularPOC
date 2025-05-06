@@ -8,7 +8,8 @@
     </div>
     <div class="user-container">
       <span *ngIf="user$ | async as user" class="username">
-        Welcome,&nbsp;<strong>{{ user.name }}</strong>
+        {{ '' | timeOfDayGreeting }},&nbsp; <!--Day greeting pipe-->
+        <strong>{{ user.name | uppercase }}</strong> <!--Built-in uppercase pipe-->
       </span>
       <button mat-icon-button (click)="openProfileMenu()">
         <mat-icon style="color: #FFFFFF;" aria-hidden="false" aria-label="Person icon" fontIcon="person"></mat-icon>

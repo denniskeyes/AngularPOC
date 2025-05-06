@@ -14,6 +14,8 @@ import { FadeInOnScrollDirective } from './shared/directives/fade-in-on-scroll.d
 import { HeaderScrollOpacityDirective } from './shared/directives/header-scroll-opacity.directive';
 import { PokemonCardLayoutComponent } from './pokemon-card-layout/pokemon-card-layout.component';
 
+import { TimeOfDayGreetingPipe } from './shared/pipes/time-of-day-greeting.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { PokemonCardLayoutComponent } from './pokemon-card-layout/pokemon-card-l
     FadeInOnScrollDirective,
     HeaderScrollOpacityDirective,
     HomeComponent,
-    PokemonCardLayoutComponent
+    PokemonCardLayoutComponent,
+    TimeOfDayGreetingPipe
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,

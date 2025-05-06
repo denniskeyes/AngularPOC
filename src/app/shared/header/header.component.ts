@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
+import { TimeOfDayGreetingPipe } from '../pipes/time-of-day-greeting.pipe';
 
 @Component({
   selector: 'app-header',
