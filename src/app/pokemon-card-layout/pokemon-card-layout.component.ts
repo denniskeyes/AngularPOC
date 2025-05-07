@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, forkJoin, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-card-layout',
@@ -24,50 +24,43 @@ export class PokemonCardLayoutComponent implements OnInit, OnDestroy {
   wartortleDescription: string = '';
   blastoiseDescription: string = '';
 
+  // Todo: Make requests for N number of Pokemon
+  pokemonMap = [
+    { id: 1, key: 'bulbasaurDescription' },
+    { id: 2, key: 'ivysaurDescription' },
+    { id: 3, key: 'venusaurDescription' },
+    { id: 4, key: 'charmanderDescription' },
+    { id: 5, key: 'charmeleonDescription' },
+    { id: 6, key: 'charizardDescription' },
+    { id: 7, key: 'squirtleDescription' },
+    { id: 8, key: 'wartortleDescription' },
+    { id: 9, key: 'blastoiseDescription' },
+  ];
+
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
 
-    this.pokemonService.getPokedexEntry(1).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.bulbasaurDescription = this.stripEscapeChars(text);
-    });
+    let numToFetch = 10;
 
-    this.pokemonService.getPokedexEntry(2).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.ivysaurDescription = this.stripEscapeChars(text);
-    });
+    const requests = this.pokemonMap.map(p =>
+      this.pokemonService.getPokedexEntry(p.id)
+    );
 
-    this.pokemonService.getPokedexEntry(3).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.venusaurDescription = this.stripEscapeChars(text);
-    });
-
-    this.pokemonService.getPokedexEntry(4).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.charmanderDescription = this.stripEscapeChars(text);
-    });
-
-    this.pokemonService.getPokedexEntry(5).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.charmeleonDescription = this.stripEscapeChars(text);
-    });
-
-    this.pokemonService.getPokedexEntry(6).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.charizardDescription = this.stripEscapeChars(text);
-    });
-
-    this.pokemonService.getPokedexEntry(7).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.squirtleDescription = this.stripEscapeChars(text);
-    });
-
-    this.pokemonService.getPokedexEntry(8).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.wartortleDescription = this.stripEscapeChars(text);
-    });
-
-    this.pokemonService.getPokedexEntry(9).pipe(takeUntil(this.destroy$)).subscribe(text => {
-      this.blastoiseDescription = this.stripEscapeChars(text);
-    });
+    // Combine requests. Will wait until all requests are completed
+    forkJoin(requests)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(responses => {
+        responses.forEach((text, i) => {
+          const key = this.pokemonMap[i].key;
+          (this as any)[key] = this.stripEscapeChars(text);
+        });
+      });
 
   }
 
   stripEscapeChars(text: string): string {
-    //Replace escape characters with a space
+    // Replace escape characters with a space
     return text
       .replace(/\\[nft]/g, ' ') //Replace escape sequences: \n, \f, \t
       .replace(/[\n\f\t\r\u000c]/g, ' '); //Replace actual characters
