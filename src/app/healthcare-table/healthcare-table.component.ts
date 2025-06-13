@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { HealthcareDataService } from '../services/healthcare-data.service';
+//import { HealthcareDataService } from '../services/healthcare-data.service';
 
 @Component({
   selector: 'app-healthcare-table',
@@ -15,7 +15,7 @@ export class HealthcareTableComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
   displayedColumns: string[] = ['state', 'issuerName', 'issuerId', 'planType', 'planId', 'issuerDenialRate', 'planDenialRate'];
 
-  constructor(private dataService: HealthcareDataService) {
+  constructor() {
 
   }
 
