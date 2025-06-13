@@ -1,0 +1,45 @@
+<main>
+  <h1>Healthcare Selector</h1>
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Todo: Selector for dataset year (2022, 23, or 24) -->
+
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef>State</th>
+      <td mat-cell *matCellDef="let data">{{ data.state }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="issuerName">
+      <th mat-header-cell *matHeaderCellDef>Issuer Name</th>
+      <td mat-cell *matCellDef="let data">{{ data.issuerName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="issuerId">
+      <th mat-header-cell *matHeaderCellDef>Issuer ID</th>
+      <td mat-cell *matCellDef="let data">{{ data.issuerId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="planType">
+      <th mat-header-cell *matHeaderCellDef>Plan Type</th>
+      <td mat-cell *matCellDef="let data">{{ data.planType }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="planId">
+      <th mat-header-cell *matHeaderCellDef>Plan ID</th>
+      <td mat-cell *matCellDef="let data">{{ data.planId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="issuerDenialRate">
+      <th mat-header-cell *matHeaderCellDef>Issuer Denial Rate</th>
+      <td mat-cell *matCellDef="let data">{{ data.issuerDenialRate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="planDenialRate">
+      <th mat-header-cell *matHeaderCellDef>Plan Denial Rate</th>
+      <td mat-cell *matCellDef="let data">{{ data.planDenialRate }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</main>
